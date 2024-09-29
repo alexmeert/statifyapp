@@ -1,0 +1,66 @@
+body {
+    background-color: #121212; /* Use Spotify's dark theme color */
+    color: #fff; /* White text for better contrast */
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Container to hold the content centered with max width */
+.container {
+    max-width: 1200px; /* Limit the width of the content */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Padding for spacing */
+}
+
+/* Main heading styling */
+h1 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 40px; /* More space below the heading */
+    color: #1db954; /* Spotify green color */
+    font-size: 3rem; /* Larger font size for impact */
+    font-weight: bold;
+    letter-spacing: 1px; /* Slight spacing for clarity */
+}
+
+/* Subheading styling (e.g., for section titles like Top Tracks, etc.) */
+h2 {
+    color: #1db954;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* General link styling */
+a {
+    display: inline-block; /* Inline-block for better control */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove the underline */
+    color: #fff; /* White text */
+    background-color: #1db954; /* Spotify green background */
+    padding: 12px 30px; /* Button-like padding */
+    border-radius: 30px; /* Rounded button */
+    margin: 10px 10px; /* Space around buttons */
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: background-color 0.4s ease; /* Smoother transition */
+}
+
+/* Hover effect on buttons/links */
+a:hover {
+    background-color: #148a40; /* Slightly darker green */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+}
+
+/* Style the list of items (e.g., tracks, albums) */
+ol {
+    list-style-type: decimal; /* Use decimal numbers for ordered list */
+    padding-left: 40px; /* Space before list items */
+}
+
+ol li {
+    margin-bottom: 15px; /* Space between items */
+    font-size: 1.2rem; /* Larger text for items */
+}

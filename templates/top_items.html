@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='top_items.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ username }}'s Listening Stats</h1>
+        <div>
+            <a href="?time_range=short_term" class="filter-button {{ 'active' if time_range == 'short_term' else '' }}">Last Month</a>
+            <a href="?time_range=medium_term" class="filter-button {{ 'active' if time_range == 'medium_term' else '' }}">Last 6 Months</a>
+            <a href="?time_range=long_term" class="filter-button {{ 'active' if time_range == 'long_term' else '' }}">Last Year</a>
+        </div>
+    </div>
+
+    <!-- Top Tracks Section -->
+    <div class="container" id="top-tracks">
+        <h2>Top 10 Tracks</h2>
+        <ol type="1">
+            {% for track in top_tracks %}
+            <li>
+                <!-- Display the album cover if available -->
+                {% if track.album.images and track.album.images[0].url %}
+                    <img src="{{ track.album.images[0].url }}" alt="Album Cover" width="100" height="100">
+                {% else %}
+                    <img src="/static/default.jpg" alt="No Album Cover" width="100" height="100">
+                {% endif %}
+                <strong>{{ track.name }}</strong> by {{ track.artists[0].name }}
+                <br>
+                <audio controls>
+                    <source src="{{ track.preview_url }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+
+    <!-- Top Artists Section -->
+    <div class="container" id="top-artists">
+        <h2>Top 10 Artists</h2>
+        <ol type="1">
+            {% for artist in top_artists %}
+            <li>
+                <!-- Display the artist's picture if available -->
+                {% if artist.images and artist.images[0].url %}
+                    <img src="{{ artist.images[0].url }}" alt="Artist Picture" width="100" height="100">
+                {% else %}
+                    <img src="/static/default.jpg" alt="No Artist Picture" width="100" height="100">
+                {% endif %}
+                {{ artist.name }}
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+
+    <!-- Top Albums Section -->
+    <div class="container" id="top-albums">
+        <h2>Top 10 Albums</h2>
+        {% if top_albums_message %}
+            <p>{{ top_albums_message }}</p>
+        {% else %}
+            <ol type="1">
+                {% for album in top_albums %}
+                <li>
+                    <!-- Display the album cover if available -->
+                    {% if album.images and album.images[0].url %}
+                        <img src="{{ album.images[0].url }}" alt="Album Cover" width="100" height="100">
+                    {% else %}
+                        <img src="/static/default.jpg" alt="No Album Cover" width="100" height="100">
+                    {% endif %}
+                    {{ album.name }}
+                </li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+    </div>
+
+</body>
+</html>
