@@ -1,15 +1,17 @@
+import os
 import requests
 import urllib.parse
-from datetime import datetime, timedelta
+from datetime import datetime
 from flask import Flask, jsonify, redirect, request, session, render_template
 
-
 app = Flask(__name__)
-app.secret_key = '2621d26ea6fe4e3482ee15fe9681c088'
 
-CLIENT_ID = '1b4d003fa6814f45b7773593f58ae694'
-CLIENT_SECRET = '2621d26ea6fe4e3482ee15fe9681c088'
-REDIRECT_URI = 'http://statify.com'
+# Use environment variables for sensitive data
+app.secret_key = os.environ.get('SECRET_KEY', 'default_secret_key')
+
+CLIENT_ID = os.environ.get('SPOTIFY_CLIENT_ID', 'default_client_id')
+CLIENT_SECRET = os.environ.get('SPOTIFY_CLIENT_SECRET', 'default_client_secret')
+REDIRECT_URI = os.environ.get('SPOTIFY_REDIRECT_URI', 'https://statify.com/callback')  # Set this to your Heroku app's URL
 
 AUTH_URL = 'https://accounts.spotify.com/authorize'
 TOKEN_URL = 'https://accounts.spotify.com/api/token'
@@ -59,7 +61,6 @@ def callback():
         session['expires_at'] = datetime.now().timestamp() + token_info['expires_in']
         
         return redirect('/top-items')
-
 
 @app.route('/top-items')
 def get_top_items():
@@ -128,7 +129,6 @@ def get_top_items():
                            top_albums_message=top_albums_message, 
                            time_range=time_range)
 
-
 @app.route('/refresh-token')
 def refresh_token():
     if 'refresh_token' not in session:
@@ -151,4 +151,5 @@ def refresh_token():
         return redirect('/top-items')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Get the port from environment or default to 5000
+    app.run(host='0.0.0.0', port=port, debug=True)
