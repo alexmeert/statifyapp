@@ -52,7 +52,6 @@
                     {% endif %}
                     <div class="artist-info">
                         <strong>{{ artist.name }}</strong><br>
-                        <span class="artist-genre">{{ artist.genre }}</span> <!-- Add genre here -->
                     </div>
                 </li>
                 {% endfor %}
@@ -73,12 +72,13 @@
                         {% else %}
                             <img src="/static/default.jpg" alt="No Album Cover" width="100" height="100">
                         {% endif %}
-                        <strong>{{ album.name }}</strong>
+                        <strong>{{ album.name }}</strong><br>
                     </li>
                     {% endfor %}
                 </ol>
             {% endif %}
         </div>
+
     </div>
 </body>
 </html>
