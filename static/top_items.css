@@ -1,128 +1,171 @@
-/* General reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 /* Body styling */
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-    background: linear-gradient(135deg, #1DB954, #191414); /* Spotify green to black gradient */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
+    background: linear-gradient(180deg, #1DB954, #0e5e2a);
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Container styling */
-.container {
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Makes the image circular */
+    border: 3px solid #212121;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+/* Header styling */
+.header {
     width: 100%;
-    max-width: 600px;
+    text-align: center;
     margin-bottom: 20px;
 }
 
-/* Header */
-h1, h2 {
-    color: #1DB954;
-    text-align: center;
-    margin-bottom: 15px;
+.header h1 {
+    color: white;
+    margin-bottom: 10px;
 }
 
-/* Filter button styling */
 .filter-button {
     text-decoration: none;
     padding: 10px 15px;
     border-radius: 20px;
     color: white;
-    background-color: #7d00e4;
+    background-color: #179744;
     margin: 5px;
     display: inline-block;
-    align-items: center;
     transition: background-color 0.4s ease, transform 0.3s ease;
 }
 
 .filter-button:hover {
-    background-color: #400073;
+    background-color: #083518;
+    box-shadow: 0 4px 8px #1DB954;
     transform: scale(1.05);
 }
 
 .active {
-    background-color: #400073;
+    background-color: black;
+    box-shadow: 0 4px 8px #1DB954;
+}
+
+/* Stats grid layout */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Container styling */
+.container {
+    background-color: #212121;
+    padding: 20px;
+    box-shadow: 0 4px 8px #1DB954;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+
+/* Header inside each container */
+.container h2 {
+    margin-bottom: 15px;
 }
 
 /* List of items */
 ol {
     list-style-type: decimal;
     padding-left: 20px;
+    text-align: left;
 }
 
 li {
     display: flex;
-    align-items: center;
+    align-items: center; /* Align items vertically in the center */
     margin-bottom: 15px;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+    color: #b3b3b3;
+    position: relative; /* For positioning the separator line */
+    padding-bottom: 10px; /* Space for the separator line */
 }
 
-li img {
-    margin-right: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+/* Separator line styling */
+li::after {
+    content: '';
+    display: block;
+    height: 1px; /* Thickness of the line */
+    background-color: #b3b3b3; /* Line color */
+    margin-top: 10px; /* Space between the item and the line */
+    position: absolute;
+    bottom: 0; /* Align to the bottom of the list item */
+    left: 0;
+    right: 0;
 }
 
-li strong {
+/* Track info styling */
+.track-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 100%;
+    margin-left: 10px;
+}
+
+.track-info strong {
     font-size: 1.1rem;
-    color: #333;
-    margin-right: 10px;
+    color: white;
 }
 
-audio {
-    margin-top: 5px;
-    width: 100%;
+.track-info span {
+    font-size: 0.9rem;
+    color: #b3b3b3;
+    margin-bottom: 10px;
 }
 
-/* Top section items */
-#top-tracks img, 
-#top-artists img, 
-#top-albums img {
-    width: 75px;
-    height: 75px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+/* Specific styling for artists and albums */
+.artist-item, .album-item {
+    display: flex;
+    align-items: center; /* Align the image and text */
 }
 
-/* Responsive design for smaller screens */
+.artist-item strong, .album-item strong {
+    margin-left: 10px; /* Space between image and text */
+    color: white; /* Text color */
+    font-size: 1.1rem; /* Font size */
+}
+
+/* Artist info styling */
+.artist-info {
+    display: flex;
+    flex-direction: column; /* Stack the name and genre vertically */
+    margin-left: 10px; /* Space between image and text */
+}
+
+.artist-genre {
+    font-size: 0.9rem; /* Font size for the genre */
+    color: #b3b3b3; /* Color for the genre text */
+    margin-top: 5px; /* Space between name and genre */
+}
+
+/* Responsive Design for smaller screens */
 @media only screen and (max-width: 768px) {
-    body {
-        padding: 10px;
+    .stats-grid {
+        grid-template-columns: 1fr;
     }
-    
+
     .container {
         width: 100%;
-        padding: 15px;
     }
-
-    li {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    li img {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 10px;
-    }
-
-    audio {
-        width: 100%;
+    .profile-pic {
+        width: 40px; /* Smaller profile picture */
+        height: 40px;
     }
 }

@@ -75,6 +75,7 @@ def get_top_items():
 
     user_profile = requests.get(API_BASE_URL + 'me', headers=headers).json()
     username = user_profile.get('display_name')
+    user_picture = user_profile.get('images')[0]['url'] if user_profile.get('images') else None
 
     time_range = request.args.get('time_range', 'medium_term')  # default to 'medium_term'
     
@@ -122,6 +123,7 @@ def get_top_items():
     # Pass top tracks, top artists, and top albums to the template
     return render_template('top_items.html',
                            username=username,
+                           user_picture=user_picture,
                            top_tracks=top_tracks_display, 
                            top_artists=top_artists['items'], 
                            top_albums=top_albums, 

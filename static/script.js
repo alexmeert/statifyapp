@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
         .catch(error => console.error('Error fetching top albums:', error));
+        
 });
 
 // Import the functions you need from the SDKs you need
