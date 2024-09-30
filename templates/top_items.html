@@ -28,7 +28,7 @@
                 {% else %}
                     <img src="/static/default.jpg" alt="No Album Cover" width="100" height="100">
                 {% endif %}
-                <strong>{{ track.name }}</strong> by {{ track.artists[0].name }}
+                <strong>{{ track.name }}</strong> {{ track.artists[0].name }}
                 <br>
                 <audio controls>
                     <source src="{{ track.preview_url }}" type="audio/mpeg">
@@ -51,7 +51,7 @@
                 {% else %}
                     <img src="/static/default.jpg" alt="No Artist Picture" width="100" height="100">
                 {% endif %}
-                {{ artist.name }}
+                <strong>{{ artist.name }}</strong>
             </li>
             {% endfor %}
         </ol>
@@ -72,12 +72,15 @@
                     {% else %}
                         <img src="/static/default.jpg" alt="No Album Cover" width="100" height="100">
                     {% endif %}
-                    {{ album.name }}
+
+                    <!-- Display the album name and artist name -->
+                    <strong>{{ album.name }}</strong>
                 </li>
                 {% endfor %}
             </ol>
         {% endif %}
     </div>
+
 
 </body>
 </html>

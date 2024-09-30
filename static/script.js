@@ -33,3 +33,25 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Error fetching top albums:', error));
 });
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyB-kVfZeq66lsB_S9u7OocxemRt_swDmak",
+  authDomain: "statify-7ac33.firebaseapp.com",
+  projectId: "statify-7ac33",
+  storageBucket: "statify-7ac33.appspot.com",
+  messagingSenderId: "516951776763",
+  appId: "1:516951776763:web:304bdfbe378f1ef7873f5e",
+  measurementId: "G-HHY084D4DW"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
