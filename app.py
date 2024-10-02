@@ -77,7 +77,7 @@ def get_top_items():
     username = user_profile.get('display_name')
     user_picture = user_profile.get('images')[0]['url'] if user_profile.get('images') else None
 
-    time_range = request.args.get('time_range', 'medium_term')  # default to 'medium_term'
+    time_range = request.args.get('time_range', 'short_term')  # default to 'medium_term'
     
     top_tracks = requests.get(API_BASE_URL + f'me/top/tracks?limit=10&time_range={time_range}', headers=headers).json()
     top_artists = requests.get(API_BASE_URL + f'me/top/artists?limit=10&time_range={time_range}', headers=headers).json()
@@ -91,13 +91,15 @@ def get_top_items():
         for item in top_tracks['items']:
             album = item['album']
             album_name = album['name']
+            artist_name = ', '.join([artist['name'] for artist in item['artists']])  # Get the artist names
             total_tracks = album['total_tracks']  # Check number of tracks in the album
 
             # Add album only if it has more than one track and it's not already added
             if total_tracks > 1 and album_name not in album_names:
                 top_albums.append({
                     'name': album_name,
-                    'images': album['images']
+                    'images': album['images'],
+                    'artist': artist_name
                     })
                 album_names.add(album_name)  # Mark the album as added
 
@@ -119,6 +121,9 @@ def get_top_items():
         
     # Only pass the top 10 tracks
     top_tracks_display = top_tracks['items'][:10]
+
+    for artist in top_artists['items']:
+        artist['genres'] = ', '.join(artist.get('genres', []))  # Combine genres into a string
     
     # Pass top tracks, top artists, and top albums to the template
     return render_template('top_items.html',
@@ -126,8 +131,8 @@ def get_top_items():
                            user_picture=user_picture,
                            top_tracks=top_tracks_display, 
                            top_artists=top_artists['items'], 
-                           top_albums=top_albums, 
-                           top_albums_message=top_albums_message, 
+                           top_albums=top_albums,
+                           top_albums_message=top_albums_message,
                            time_range=time_range)
 
 
