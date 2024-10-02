@@ -32,13 +32,16 @@ To run this application, ensure you have the following installed:
 - cd statifyapp
   
 # 2. Set up an environment:
+- Crete a file in your statify directory named ".env"
+- This is where you'll add your environment variables
+  
 # 3. Install the required packages:
-pip install -r requirements.txt
+- pip install -r requirements.txt
 
 # 4. Set up your environment variables:
-- CLIENT_ID=your_spotify_client_id
-- CLIENT_SECRET=your_spotify_client_secret
-- APP_SECRET_KEY=your_app_secret_key
+- CLIENT_ID = your_spotify_client_id
+- CLIENT_SECRET = your_spotify_client_secret
+- APP_SECRET_KEY = your_app_secret_key
 
 # 5. Run the application
 - python app.py
