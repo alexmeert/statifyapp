@@ -4,10 +4,10 @@ Statify is a web application that allows users to track their Spotify listening 
 
 ## Features
 
-- User authentication with Spotify
-- Display of user's top tracks, artists, and albums
-- Ability to filter listening statistics by different time ranges (short-term, medium-term, long-term)
-- A responsive design that works well on both desktop and mobile devices
+- Spotify Authentication: Secure login via Spotify to personalize data.
+- Top Music Stats: Displays user’s top tracks, artists, and albums.
+- Time Range Filters: Filter stats based on short-term, medium-term, and long-term data.
+- Responsive Design: Optimized for both desktop and mobile viewing.
 
 ## Technologies Used
 
@@ -27,17 +27,20 @@ To run this application, ensure you have the following installed:
 
 ## Installation
 
-1. Clone the repository
-  git clone https://github.com/alexmeert/statifyapp.git
+# 1. Clone the repository: 
+git clone https://github.com/alexmeert/statifyapp.git
   cd statifyapp
-2. Set up an environment
-3. Install the required packages
-  pip install -r requirements.txt
-4. Set up your environment variables
-  CLIENT_ID=your_spotify_client_id
-  CLIENT_SECRET=your_spotify_client_secret
-  APP_SECRET_KEY=your_app_secret_key
-5. Run the application
+  
+# 2. Set up an environment:
+# 3. Install the required packages:
+pip install -r requirements.txt
+
+# 4. Set up your environment variables:
+CLIENT_ID=your_spotify_client_id
+CLIENT_SECRET=your_spotify_client_secret
+APP_SECRET_KEY=your_app_secret_key
+
+# 5. Run the application
    python app.py
 
 ## File Structure
