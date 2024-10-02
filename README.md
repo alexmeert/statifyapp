@@ -28,20 +28,20 @@ To run this application, ensure you have the following installed:
 ## Installation
 
 # 1. Clone the repository: 
-git clone https://github.com/alexmeert/statifyapp.git
-  cd statifyapp
+- git clone https://github.com/alexmeert/statifyapp.git
+- cd statifyapp
   
 # 2. Set up an environment:
 # 3. Install the required packages:
 pip install -r requirements.txt
 
 # 4. Set up your environment variables:
-CLIENT_ID=your_spotify_client_id
-CLIENT_SECRET=your_spotify_client_secret
-APP_SECRET_KEY=your_app_secret_key
+- CLIENT_ID=your_spotify_client_id
+- CLIENT_SECRET=your_spotify_client_secret
+- APP_SECRET_KEY=your_app_secret_key
 
 # 5. Run the application
-   python app.py
+- python app.py
 
 ## File Structure
 
