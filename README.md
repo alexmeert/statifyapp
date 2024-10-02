@@ -26,3 +26,18 @@ To run this application, ensure you have the following installed:
 - python-dotenv
 
 ## Installation
+
+
+## File Structure
+
+/statify
+│
+├── app.py                     # Main application file
+├── requirements.txt           # Python dependencies
+├── .env                       # Environment variables
+├── /templates
+│   ├── index.html             # Homepage template
+│   └── top_items.html         # User stats page template
+├── /static
+│   ├── index.css              # Styles for index page
+│   └── top_items.css          # Styles for stats page
