@@ -1,4 +1,4 @@
-/* General reset for margin and padding */
+/* General reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,59 +6,124 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #000; /* Light background for good readability */
-    line-height: 1.6;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    background-color: #121212; /* Dark background for Spotify feel */
+    color: #fff;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2.5rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .logo {
+    font-size: 2rem; /* Larger font size for logo */
+    font-weight: 700;
+    color: #1DB954; /* Spotify green */
+    letter-spacing: 0.05rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.2rem; /* Increased font size */
+}
+
+.login-btn {
+    background-color: #1DB954;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1.2rem; /* Slightly larger font */
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-btn:hover {
+    background-color: #1aa34a;
+    transform: translateY(-3px); /* More noticeable hover effect */
+}
+
+/* Content Section */
+.content-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.container {
-    background-color: #333;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
     width: 100%;
-    max-width: 600px; /* Maximum width for larger screens */
+    max-width: 1400px; /* Wider max-width for larger box */
+    padding: 3rem; /* Increased padding */
+    gap: 3rem;
 }
 
-h1 {
-    font-size: 2.5rem;
-    color: #ffffff; /* Spotify green for branding consistency */
-    margin-bottom: 1rem;
-    font-weight: 600;
+.hero {
+    background-color: #333;
+    padding: 3rem; /* More padding for a larger box */
+    border-radius: 15px; /* Larger border radius */
+    box-shadow: 0 6px 8px #1DB954;
+    width: 60%; /* Increased width */
+    text-align: center;
+    line-height: 1.75; /* Increased line height for better readability */
 }
 
-/* Login button styling */
-a {
-    display: inline-block;
-    background-color: #1DB954; /* Spotify green */
+/* Hero Section */
+.hero h1 {
+    font-size: 3.5rem; /* Larger font for heading */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05rem;
+}
+
+.hero p {
+    font-size: 1.4rem; /* Larger font for paragraph */
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: #e0e0e0;
+}
+
+.cta-btn {
+    background-color: #1DB954;
     color: white;
-    padding: 0.75rem 2rem;
+    padding: 1rem 3rem; /* Larger padding for button */
     text-decoration: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 500;
+    border-radius: 12px; /* Larger border radius */
+    font-size: 1.4rem; /* Larger font size */
+    font-weight: 600;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-a:hover {
+.cta-btn:hover {
     background-color: #1aa34a;
-    transform: translateY(-2px); /* Slight lift effect on hover */
+    transform: scale(1.07); /* Larger hover scale effect */
 }
 
 /* Responsive Design */
 @media only screen and (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
+    .content-container {
+        flex-direction: column;
+        gap: 1.5rem;
     }
 
-    a {
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
+    .hero {
+        width: 100%;
     }
 }

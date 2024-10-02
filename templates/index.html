@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statify</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Welcome to Statify</h1>
-        <a href="/login">Login with Spotify</a>
-        <div id="top-items"></div>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Statify</div>
+        <ul>
+            <li><a href="/login" class="login-btn">Login with Spotify</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content in Two Columns -->
+    <div class="content-container">
+        <!-- Hero Section on the Left -->
+        <div class="hero">
+            <h1>Welcome to Statify</h1>
+            <p>Track your Spotify listening habits, top tracks, and favorite artists all in one place.</p>
+            <a href="/login" class="cta-btn">Login with Spotify</a>
+        </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
+
 </html>
