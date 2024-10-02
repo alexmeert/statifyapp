@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 import requests
 import urllib.parse
 from datetime import datetime, timedelta
@@ -5,10 +7,10 @@ from flask import Flask, jsonify, redirect, request, session, render_template
 
 
 app = Flask(__name__)
-app.secret_key = '2621d26ea6fe4e3482ee15fe9681c088'
+app.secret_key = os.getenv('APP_SECRET_KEY')
 
-CLIENT_ID = '1b4d003fa6814f45b7773593f58ae694'
-CLIENT_SECRET = '2621d26ea6fe4e3482ee15fe9681c088'
+CLIENT_ID = os.getenv('CLIENT_ID')
+CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 REDIRECT_URI = 'http://localhost:5000/callback'
 
 AUTH_URL = 'https://accounts.spotify.com/authorize'
