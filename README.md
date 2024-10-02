@@ -32,12 +32,12 @@ To run this application, ensure you have the following installed:
 
 /statify
 │
-├── app.py                     # Main application file
-├── requirements.txt           # Python dependencies
-├── .env                       # Environment variables
+├── app.py
+├── requirements.txt
+├── .env
 ├── /templates
-│   ├── index.html             # Homepage template
-│   └── top_items.html         # User stats page template
+│   ├── index.html
+│   └── top_items.html
 ├── /static
-│   ├── index.css              # Styles for index page
-│   └── top_items.css          # Styles for stats page
+│   ├── index.css 
+│   └── top_items.css
