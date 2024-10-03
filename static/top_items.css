@@ -10,7 +10,7 @@ body {
 .profile-pic {
     width: 75px;
     height: 75px;
-    border-radius: 50%; /* Makes the image circular */
+    border-radius: 50%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     object-fit: cover;
     transition: transform 0.3s ease;
@@ -84,21 +84,21 @@ ol {
 
 li {
     display: flex;
-    align-items: center; /* Align items vertically in the center */
+    align-items: center;
     margin-bottom: 15px;
     color: #b3b3b3;
-    position: relative; /* For positioning the separator line */
-    padding-bottom: 10px; /* Space for the separator line */
+    position: relative;
+    padding-bottom: 10px;
 }
 
 li::after {
     content: '';
     display: block;
-    height: 1px; /* Thickness of the line */
-    background-color: #b3b3b3; /* Line color */
-    margin-top: 10px; /* Space between the item and the line */
+    height: 1px;
+    background-color: #b3b3b3;
+    margin-top: 10px;
     position: absolute;
-    bottom: 0; /* Align to the bottom of the list item */
+    bottom: 0;
     left: 0;
     right: 0;
 }
@@ -117,12 +117,12 @@ li::after {
 
 .artist-item, .album-item {
     display: flex;
-    align-items: center; /* Align image and text horizontally */
-    flex-direction: row; /* Keep image and text next to each other */
+    align-items: center;
+    flex-direction: row;
 }
 
 .album-item strong, .artist-item strong, .track-info strong {
-    margin-left: 10px; /* Space between image and text */
+    margin-left: 10px;
     color: white;
     font-size: 1.1rem;
 }
