@@ -115,7 +115,7 @@ def get_top_items():
             top_tracks_url = API_BASE_URL + f'me/top/tracks?limit=50&offset={offset}&time_range={time_range}'
             top_tracks = requests.get(top_tracks_url, headers=headers).json()
 
-    # If we couldn't find 10 albums, return a message
+    # If there aren't 10 albums, return a message
     if len(top_albums) < 10:
         top_albums_message = "Not enough multi-track albums found."
     else:
