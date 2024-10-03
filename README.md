@@ -39,6 +39,8 @@ To run this application, ensure you have the following installed:
 - pip install -r requirements.txt
 
 # 4. Set up your environment variables:
+Go to the Spotify for Developers Website: https://developer.spotify.com
+
 - CLIENT_ID = your_spotify_client_id
 - CLIENT_SECRET = your_spotify_client_secret
 - APP_SECRET_KEY = your_app_secret_key
